@@ -28,10 +28,12 @@ export default {
     },
 
     initBody() {
-        this.body = document.body;
+        const body = document.body;
+
+        this.body = body;
         this.scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-        this.initialBodyPaddingRight = document.body.style.paddingRight;
-        this.initialBodyComputedPaddingRight = window.getComputedStyle(document.body).paddingRight;
+        this.initialBodyPaddingRight = body.style.paddingRight;
+        this.initialBodyComputedPaddingRight = window.getComputedStyle(body).paddingRight;
     },
 
     initContainer() {
@@ -53,7 +55,7 @@ export default {
     },
 
     initList() {
-        const {options, list} = this;
+        const {element, options, list} = this;
         const items = [];
 
         // initList may be called in this.update, so should keep idempotent
@@ -63,10 +65,18 @@ export default {
             const item = document.createElement('li');
             const img = document.createElement('img');
 
+            forEach(options.inheritedAttributes, (name) => {
+                const value = image.getAttribute(name);
+
+                if (value !== null) {
+                    img.setAttribute(name, value);
+                }
+            });
+
             img.src = image.url;
             img.alt = image.name;
             img.setAttribute('data-index', index);
-            img.setAttribute('data-original-url', image.url);
+            img.setAttribute('data-original-url', url || src);
             img.setAttribute('data-viewer-action', 'view');
             img.setAttribute('role', 'button');
             item.appendChild(img);
@@ -96,13 +106,13 @@ export default {
             });
         });
 
-        // if (options.transition) {
-        //     addListener(element, EVENT_VIEWED, () => {
-        //         addClass(list, CLASS_TRANSITION);
-        //     }, {
-        //         once: true,
-        //     });
-        // }
+        if (options.transition) {
+            addListener(element, EVENT_VIEWED, () => {
+                addClass(list, CLASS_TRANSITION);
+            }, {
+                once: true,
+            });
+        }
     },
 
     renderList(index) {

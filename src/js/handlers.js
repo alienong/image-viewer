@@ -136,6 +136,7 @@ export default {
         }
 
         const {
+            element,
             options,
             image,
             index,
@@ -164,6 +165,18 @@ export default {
             this.renderImage(() => {
                 this.viewed = true;
                 this.viewing = false;
+
+                if (isFunction(options.viewed)) {
+                    addListener(element, EVENT_VIEWED, options.viewed, {
+                        once: true,
+                    });
+                }
+
+                dispatchEvent(element, EVENT_VIEWED, {
+                    originalImage: this.images[index],
+                    index,
+                    image,
+                });
             });
         });
     },
