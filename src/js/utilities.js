@@ -548,13 +548,13 @@ export function getImageNaturalSizes(image, options, callback) {
     }
   };
 
-  forEach(options.inheritedAttributes, (name) => {
-    const value = image.getAttribute(name);
-
-    if (value !== null) {
-      newImage.setAttribute(name, value);
-    }
-  });
+  // forEach(options.inheritedAttributes, (name) => {
+  //   const value = image.getAttribute(name);
+  //
+  //   if (value !== null) {
+  //     newImage.setAttribute(name, value);
+  //   }
+  // });
 
   newImage.src = image.src;
 

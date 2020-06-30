@@ -65,13 +65,13 @@ export default {
             const item = document.createElement('li');
             const img = document.createElement('img');
 
-            forEach(options.inheritedAttributes, (name) => {
-                const value = image.getAttribute(name);
-
-                if (value !== null) {
-                    img.setAttribute(name, value);
-                }
-            });
+            // forEach(options.inheritedAttributes, (name) => {
+            //     const value = image.getAttribute(name);
+            //
+            //     if (value !== null) {
+            //         img.setAttribute(name, value);
+            //     }
+            // });
 
             img.src = image.url;
             img.alt = image.name;
