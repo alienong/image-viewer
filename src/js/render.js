@@ -76,7 +76,7 @@ export default {
             img.src = image.url;
             img.alt = image.name;
             img.setAttribute('data-index', index);
-            img.setAttribute('data-original-url', url || src);
+            img.setAttribute('data-original-url', image.url);
             img.setAttribute('data-viewer-action', 'view');
             img.setAttribute('role', 'button');
             item.appendChild(img);
