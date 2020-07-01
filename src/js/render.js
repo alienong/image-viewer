@@ -114,10 +114,10 @@ export default {
             });
         });
 
-        if(this.items.length > 2){
+        if (this.items.length >= 2) {
             removeClass(this.toolbar.querySelector(`.${NAMESPACE}-prev`), `${NAMESPACE}-hide`);
             removeClass(this.toolbar.querySelector(`.${NAMESPACE}-next`), `${NAMESPACE}-hide`);
-        }else{
+        } else {
             addClass(this.toolbar.querySelector(`.${NAMESPACE}-prev`), `${NAMESPACE}-hide`);
             addClass(this.toolbar.querySelector(`.${NAMESPACE}-next`), `${NAMESPACE}-hide`);
         }
