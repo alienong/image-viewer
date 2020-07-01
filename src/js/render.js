@@ -72,11 +72,18 @@ export default {
             //         img.setAttribute(name, value);
             //     }
             // });
+            let url = "", name = "";
+            if(typeof image === "string"){
+                url = image;
+            }else{
+                url = image.url;
+                name = image.name;
+            }
 
-            img.src = image.url;
-            img.alt = image.name;
+            img.src = url;
+            img.alt = name;
             img.setAttribute('data-index', index);
-            img.setAttribute('data-original-url', image.url);
+            img.setAttribute('data-original-url', url);
             img.setAttribute('data-viewer-action', 'view');
             img.setAttribute('role', 'button');
             item.appendChild(img);
