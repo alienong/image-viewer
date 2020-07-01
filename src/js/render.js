@@ -4,6 +4,7 @@ import {
     EVENT_LOAD,
     EVENT_TRANSITION_END,
     EVENT_VIEWED,
+    NAMESPACE
 } from './constants';
 import {
     addClass,
@@ -112,6 +113,14 @@ export default {
                 once: true,
             });
         });
+
+        if(this.items.length > 2){
+            removeClass(this.toolbar.querySelector(`.${NAMESPACE}-prev`), `${NAMESPACE}-hide`);
+            removeClass(this.toolbar.querySelector(`.${NAMESPACE}-next`), `${NAMESPACE}-hide`);
+        }else{
+            addClass(this.toolbar.querySelector(`.${NAMESPACE}-prev`), `${NAMESPACE}-hide`);
+            addClass(this.toolbar.querySelector(`.${NAMESPACE}-next`), `${NAMESPACE}-hide`);
+        }
 
         if (options.transition) {
             addListener(element, EVENT_VIEWED, () => {

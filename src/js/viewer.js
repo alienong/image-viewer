@@ -166,10 +166,6 @@ class Viewer {
                     return;
                 }
 
-                if ((name === "prev" || name === "next") && this.length < 2) {
-                    return;
-                }
-
                 const size = deep && !isUndefined(value.size) ? value.size : value;
                 const click = deep && !isUndefined(value.click) ? value.click : value;
                 const item = document.createElement('li');
