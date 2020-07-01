@@ -895,7 +895,7 @@ export default {
             forEach(this.items, (item, i) => {
                 const img = item.querySelector('img');
                 const image = images[i];
-                let url = typeof image === "string" ? image : image.url;
+                let url = typeof image === "object" ? (image || {}).url : image;
                 if (image && img) {
                     if (url !== img.src) {
                         indexes.push(i);
