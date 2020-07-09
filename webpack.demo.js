@@ -54,9 +54,6 @@ module.exports = {
                         name: '[name].[ext]'
                     }
                 }],
-                // include: [
-                //     path.resolve(__dirname, "../src/images")
-                // ],
             },
         ]
     }

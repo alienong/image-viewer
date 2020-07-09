@@ -50,9 +50,15 @@ class Viewer {
      */
     constructor(images, options = {}) {
         this.images = images;
-        this.element = document.createElement("div"); // 创建一个div元素，完成事件监听和派发
         this.options = assign({}, DEFAULTS, isPlainObject(options) && options);
-        this.action = false;
+        this.element = document.createElement("div"); // 创建一个div元素，完成事件监听和派发
+
+
+        this._ready = false;
+        this._rendered = false;
+        this._shown = false;
+
+
         this.fading = false;
         this.fulled = false;
         this.hiding = false;

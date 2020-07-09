@@ -42,5 +42,8 @@
     "last 2 versions",
     "> 1%",
     "not ie <= 8"
-  ]
+  ],
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
 }

@@ -1,4 +1,6 @@
 export default {
+  // 显示遮罩层
+  modal: true,
   /**
    * Enable a modal backdrop, specify `static` for a backdrop
    * which doesn't close the modal on click.
